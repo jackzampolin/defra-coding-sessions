@@ -1,0 +1,66 @@
+{
+  "sessionId": "gemini-example-session",
+  "projectHash": "example-project",
+  "startTime": "2026-03-27T11:00:00Z",
+  "lastUpdated": "2026-03-27T11:00:14Z",
+  "kind": "main",
+  "summary": "Synthetic Gemini fixture conversation",
+  "messages": [
+    {
+      "id": "msg-1",
+      "timestamp": "2026-03-27T11:00:00Z",
+      "type": "user",
+      "content": [
+        {
+          "text": "Summarize the synthetic deployment notes."
+        }
+      ],
+      "model": "gemini-test",
+      "tokens": {
+        "input": 14
+      }
+    },
+    {
+      "id": "msg-2",
+      "timestamp": "2026-03-27T11:00:05Z",
+      "type": "gemini",
+      "content": [
+        {
+          "text": "Synthetic deployment notes: the service exposes HTTP status and stores deterministic sample rows."
+        }
+      ],
+      "model": "gemini-test",
+      "tokens": {
+        "output": 18
+      }
+    },
+    {
+      "id": "msg-3",
+      "timestamp": "2026-03-27T11:00:10Z",
+      "type": "user",
+      "content": [
+        {
+          "text": "Name one safe next step."
+        }
+      ],
+      "model": "gemini-test",
+      "tokens": {
+        "input": 8
+      }
+    },
+    {
+      "id": "msg-4",
+      "timestamp": "2026-03-27T11:00:14Z",
+      "type": "gemini",
+      "content": [
+        {
+          "text": "Safe next step: add a synthetic watcher fixture for regression coverage."
+        }
+      ],
+      "model": "gemini-test",
+      "tokens": {
+        "output": 12
+      }
+    }
+  ]
+}

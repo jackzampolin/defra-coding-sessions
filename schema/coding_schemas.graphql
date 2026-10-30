@@ -1,0 +1,95 @@
+# DefraDB SDL for the collections coding-data reads and writes.
+#
+# Apply this to a DefraDB node before running `coding-data backfill` or
+# `coding-data watch`:
+#
+#   defradb client schema add --file schema/coding_schemas.graphql
+#
+# Only the five collections the ingest client touches are declared here:
+# CodingProject, CodingSession, CodingMessage, CodingAction and
+# CodingTokenUsage. Relation fields the client does not use (session tags,
+# notes) are intentionally omitted.
+
+type CodingProject {
+    path: String @index(unique: true)
+    repo_name: String @index
+    repo_owner: String @index
+    sessions: [CodingSession]
+}
+
+type CodingSession {
+    session_id: String @index(unique: true)
+    project: CodingProject
+    git_branch: String @index
+    source: String @index
+    source_host: String @index
+    model_primary: String @index
+    claude_version: String
+    title: String @fulltext
+    archived: Boolean @index
+    git_sha: String
+    git_origin_url: String
+    agent_role: String @index
+    reasoning_effort: String @index
+    created_at: DateTime @index(direction: DESC)
+    finished_at: DateTime
+    last_activity_at: DateTime @index(direction: DESC)
+    message_count: Int
+    user_message_count: Int
+    input_tokens: Int
+    output_tokens: Int
+    cache_creation_input_tokens: Int
+    cache_read_input_tokens: Int
+    reasoning_output_tokens: Int
+    total_tokens: Int
+    tools_used: [String]
+    first_prompt: String
+    summary: String @fulltext
+    messages: [CodingMessage]
+    actions: [CodingAction]
+}
+
+type CodingMessage {
+    message_id: String @index(unique: true)
+    session: CodingSession
+    sequence: Int @index
+    role: String @index
+    source_host: String @index
+    model: String
+    content: String @fulltext
+    thinking: String @fulltext
+    tool_uses: [String]
+    files_referenced: [String]
+    input_tokens: Int
+    output_tokens: Int
+    cache_creation_input_tokens: Int
+    cache_read_input_tokens: Int
+    reasoning_output_tokens: Int
+    total_tokens: Int
+    created_at: DateTime @index(direction: DESC)
+}
+
+type CodingAction {
+    message: CodingMessage
+    session: CodingSession
+    action_type: String @index
+    target: String @index
+    command: String @fulltext
+    tags: [String]
+    created_at: DateTime @index(direction: DESC)
+}
+
+type CodingTokenUsage {
+    usage_id: String @index(unique: true)
+    session_id: String @index
+    source: String @index
+    source_host: String @index
+    model: String @index
+    input_tokens: Int
+    output_tokens: Int
+    cache_creation_input_tokens: Int
+    cache_read_input_tokens: Int
+    reasoning_output_tokens: Int
+    total_tokens: Int
+    created_at: DateTime @index(direction: DESC)
+}

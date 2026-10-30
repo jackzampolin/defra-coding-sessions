@@ -1,0 +1,16 @@
+[
+  {
+    "sessionId": "gemini-log-session",
+    "messageId": 1,
+    "type": "user",
+    "message": "Synthetic log prompt",
+    "timestamp": "2026-03-27T11:10:00Z"
+  },
+  {
+    "sessionId": "gemini-log-session",
+    "messageId": 2,
+    "type": "assistant",
+    "message": "Synthetic log reply",
+    "timestamp": "2026-03-27T11:10:02Z"
+  }
+]

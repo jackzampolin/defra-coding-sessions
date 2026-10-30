@@ -1,0 +1,7 @@
+{
+  "subagent_id": "session-child",
+  "parent_session_id": "session-1",
+  "child_session_id": "session-child",
+  "subagent_type": "explore",
+  "description": "scan sources"
+}

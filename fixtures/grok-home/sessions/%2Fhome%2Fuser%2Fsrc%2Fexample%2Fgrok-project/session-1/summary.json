@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": "session-1",
+    "cwd": "/home/user/src/example/grok-project"
+  },
+  "session_summary": "Build Grok Adapter",
+  "created_at": "2026-07-09T16:24:29.695338Z",
+  "updated_at": "2026-07-09T16:30:00Z",
+  "current_model_id": "grok-4.5",
+  "git_remotes": [
+    "https://github.com/octo-org/example-repo.git"
+  ],
+  "head_commit": "abc1234",
+  "head_branch": "main",
+  "generated_title": "Build Grok Adapter",
+  "agent_name": "grok-build-plan",
+  "reasoning_effort": "high"
+}
